@@ -7,7 +7,7 @@ const GoalItem = props =>{
                 <Text>{props.title}</Text>
             </View>
             <View style={styles.delButton}>
-                <Button title="X" color="red"/>
+                <Button title="X" color="red" onPress={props.onDelete.bind(this, props.title)}/>
             </View>   
         </View>
     );

@@ -13,11 +13,11 @@ export default function App(){
       return [...courseGoals,{key: goalTitle, value: goalTitle}]
     });
   }
-  const deleteGoalHandler = goalID =>{
+  const deleteGoalHandler = goalTitle =>{
     setCourseGoals(courseGoals =>{
       return (
         courseGoals.filter(goal =>{
-          if(goal.id === goalID){
+          if(goal.value === goalTitle){
             return false;
           }else{
             return true;
@@ -50,7 +50,7 @@ export default function App(){
         <FlatList
           data={courseGoals}
           renderItem={itemData => (
-              <GoalItem title={itemData.item.value}/>
+              <GoalItem title={itemData.item.value} onDelete={deleteGoalHandler}/>
           )}
         />
     </View>
