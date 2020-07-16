@@ -6,12 +6,13 @@ const GoalInput = props => {
         setEnteredGoal(enteredText);
     }
     const onAddGoalHandler = () =>{
+        console.log(props.search(enteredGoal));
+        props.onAddGoal(enteredGoal);
+        setEnteredGoal('');
         Alert.alert("Success","Goal Added Successfully",[{
             text:"Cancel",
             style:"cancel"
         }]);
-        props.onAddGoal(enteredGoal);
-        setEnteredGoal('');
     }
     return(
         <Modal animationType="slide" visible={props.visible}> 

@@ -12,7 +12,18 @@ export default function App(){
     setCourseGoals(courseGoals => {
       return [...courseGoals,{key: goalTitle, value: goalTitle}]
     });
-    console.log(courseGoals);
+  }
+  const searchCourse = goalTitle => {
+    const result = courseGoals.filter(course => {
+      if(course.value === goalTitle){
+        return true;
+      }
+      return false;
+    });
+    if(result.length === 0){
+      return false;
+    }
+    return true;
   }
   return(
     <View style={styles.screen}> 
@@ -21,6 +32,7 @@ export default function App(){
           visible={isAddMode}
           onAddGoal={addGoalHandler}
           onCancel={onCancelAddGoalHandler}
+          search={searchCourse}
         />
         <FlatList
           data={courseGoals}
