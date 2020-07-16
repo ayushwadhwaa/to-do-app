@@ -6,13 +6,20 @@ const GoalInput = props => {
         setEnteredGoal(enteredText);
     }
     const onAddGoalHandler = () =>{
-        console.log(props.search(enteredGoal));
-        props.onAddGoal(enteredGoal);
-        setEnteredGoal('');
-        Alert.alert("Success","Goal Added Successfully",[{
-            text:"Cancel",
-            style:"cancel"
-        }]);
+        if(props.search(enteredGoal)){
+            Alert.alert("Invalid Goal","Goal Already Exists",[{
+                text:"Cancel",
+                style:"danger"
+            }]);
+        }
+        else{
+            props.onAddGoal(enteredGoal);
+            setEnteredGoal('');
+            Alert.alert("Success","Goal Added Successfully",[{
+                text:"Cancel",
+                style:"cancel"
+            }]);
+        }
     }
     return(
         <Modal animationType="slide" visible={props.visible}> 

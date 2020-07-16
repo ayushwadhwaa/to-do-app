@@ -13,6 +13,19 @@ export default function App(){
       return [...courseGoals,{key: goalTitle, value: goalTitle}]
     });
   }
+  const deleteGoalHandler = goalID =>{
+    setCourseGoals(courseGoals =>{
+      return (
+        courseGoals.filter(goal =>{
+          if(goal.id === goalID){
+            return false;
+          }else{
+            return true;
+          }
+        })
+      );
+    })
+  }
   const searchCourse = goalTitle => {
     const result = courseGoals.filter(course => {
       if(course.value === goalTitle){
