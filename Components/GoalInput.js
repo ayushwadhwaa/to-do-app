@@ -6,7 +6,7 @@ const GoalInput = props => {
         setEnteredGoal(enteredText);
     }
     return(
-        <Modal animationType="slide"> 
+        <Modal animationType="slide" visible={props.visible}> 
             <View style={styles.inputContainer}>
                 <TextInput 
                     style={styles.input}
@@ -15,8 +15,8 @@ const GoalInput = props => {
                     value={enteredGoal}
                 />
                 <View style={styles.buttonContainer}>
-                    <View style={styles.button}>
-                        <Button title="CANCEL" color="red"/>
+                    <View style={styles.button} >
+                        <Button title="CANCEL" color="red" onPress={props.onCancel}/>
                     </View>
                     <View style={styles.button}>
                         <Button title="ADD"/>
